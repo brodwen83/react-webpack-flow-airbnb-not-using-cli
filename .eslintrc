@@ -1,27 +1,39 @@
 {
-  "extends": ["airbnb-base", "airbnb", "prettier", "prettier/react"],
-  "plugins": ["prettier", "react"],
+  "parser": "babel-eslint",
+  "plugins": ["react", "jsx-a11y", "import"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb-base",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "jest": true,
+    "browser": true,
+    "node": true
+  },
   "rules": {
-    "react/jsx-filename-extension": [
-      1,
+    "react/prefer-stateless-function": "off",
+    "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": 1,
+    "react/destructuring-assignment": "off",
+    "jsx-a11y/click-events-have-key-events": 1,
+    "import/no-extraneous-dependencies": [
+      "error",
       {
-        "extensions": [".js", ".jsx"]
+        "devDependencies": ["regenerator-runtime/**"]
       }
-    ],
-    "no-unused-vars": 0,
-    "react/prop-types": 0,
-    "no-underscore-dangle": 0,
-    "import/imports-first": ["error", "absolute-first"],
-    "import/newline-after-import": "error"
+    ]
   },
   "globals": {
-    "window": true,
-    "document": true,
-    "localStorage": true,
-    "FormData": true,
-    "FileReader": true,
-    "Blob": true,
-    "navigator": true
-  },
-  "parser": "babel-eslint"
+    "Generator": true,
+    "document": true
+  }
 }
